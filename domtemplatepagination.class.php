@@ -53,7 +53,7 @@ class pagination{
 		else{
 			$normalPaginationElement->nodeValue = "first page";
 			$this->urlParametersArray['pageNumber'] = 1;
-			$normalPaginationElement->setAttribute('href', 'index.php?r=Reports&'.http_build_str($preparedGetParameters));
+			$normalPaginationElement->setAttribute('href', 'index.php?r=Reports&'.http_build_query($preparedGetParameters));
 			$paginationHolderElement->appendChild($normalPaginationElement->cloneNode(true));
 		}
 
@@ -82,7 +82,7 @@ class pagination{
 				else{
 					$normalPaginationElement->nodeValue = $i;
 					$preparedGetParameters['search']['pageNumber'] = $i;
-					$normalPaginationElement->setAttribute('href', 'index.php?r=Reports&'.http_build_str($preparedGetParameters));
+					$normalPaginationElement->setAttribute('href', 'index.php?r=Reports&'.http_build_query($preparedGetParameters));
 					$paginationHolderElement->appendChild($normalPaginationElement->cloneNode(true));
 				}
 			}
@@ -95,7 +95,7 @@ class pagination{
 		else{
 			$normalPaginationElement->nodeValue = "last page";
 			$preparedGetParameters['search']['pageNumber'] = $numberOfPages;
-			$normalPaginationElement->setAttribute('href', 'index.php?r=Reports&'.http_build_str($preparedGetParameters));
+			$normalPaginationElement->setAttribute('href', 'index.php?r=Reports&'.http_build_query($preparedGetParameters));
 			$paginationHolderElement->appendChild($normalPaginationElement->cloneNode(true));
 		}
 	}
