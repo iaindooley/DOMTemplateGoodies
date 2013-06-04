@@ -13,5 +13,8 @@ spl_autoload_register(function($class) {
 		case 'DOMTemplateAppPaths':
 			require_once dirname(__FILE__). '/domtemplateapppaths.php';
 			break;
+                case 'DOMTemplateImgPaths':
+			require_once dirname(__FILE__). '/domtemplateimgpaths.php';
+			break;
 	}
 });

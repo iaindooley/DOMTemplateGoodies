@@ -30,13 +30,23 @@ class DOMTemplateAppPaths {
 	 * @param string $app_path
 	 * @throws Exception
 	 */
-	public function __construct($path, $app_path = '/') {
-		if (!file_exists($path))
-			throw new Exception('Template \'' . basename($path). '\' doesn\'t exist!');
-		
-		$text = file_get_contents($path);
-		$this->template = new DOMTemplate($text);
-		$this->app_path = $app_path;
+	public function __construct($path, $app_path = '/', $is_html = false) 
+        {
+            if($is_html)
+            {
+                $this->template = new DOMTemplate($path);
+                $this->app_path = $app_path;
+            }
+            else
+            {
+                if (!file_exists($path))
+                {
+                        throw new Exception('Template \'' . basename($path). '\' doesn\'t exist!');
+                }
+                $text = file_get_contents($path);
+                $this->template = new DOMTemplate($text);
+                $this->app_path = $app_path;
+            }
 	}
 
 	/**
